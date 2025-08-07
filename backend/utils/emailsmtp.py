@@ -1,18 +1,13 @@
 import smtplib
-from email.message import EmailMessage
-import os
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from dotenv import load_dotenv
-import base64
 import os
 load_dotenv()
 
-img_path = os.path.join(os.path.dirname(__file__), "images", "hackclubasiet.png")
-with open(img_path, "rb") as image_file:
-    encoded_ = base64.b64encode(image_file.read()).decode('utf-8')
-img_b64 = f'data:image/png;base64,{encoded_}'
 
 def send_email(name, email, username, password):
-    msg = EmailMessage()
+    msg = MIMEMultipart("alternative")
     msg['Subject'] = "Welcome to HC ASIET, you're officially cool! 😎"
     msg['From'] = os.getenv('EMAIL_USER')
     msg['To'] = email
@@ -86,7 +81,7 @@ def send_email(name, email, username, password):
 <body>
   <div class="container">
     <div class="header">
-      <img src="{img_b64}" alt="Hack Club Logo">
+      <img src="https://hack-club-membership.vercel.app/assets/hackclubasiet.png" alt="Hack Club Logo">
       <h1>Welcome to Hack Club ASIET 🎉</h1>
     </div>
 
@@ -121,7 +116,10 @@ def send_email(name, email, username, password):
 </html>
 """
     
-    msg.add_alternative(body, subtype='html')
+    html_part = MIMEText(body, "html")
+    plain_text="test"
+    msg.attach(MIMEText(plain_text, "plain"))
+    msg.attach(html_part)
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
@@ -131,4 +129,3 @@ def send_email(name, email, username, password):
     except Exception as e:
         print(f"Failed to send email: {e}")
         
-send_email("Sreeram", "sreerammakesstuff@gmail.com", "ee", "ee")
