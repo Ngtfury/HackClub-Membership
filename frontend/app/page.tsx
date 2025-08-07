@@ -102,7 +102,7 @@ export default function Home() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <h2 className="text-[#181211] text-lg font-bold leading-tight tracking-[-0.015em]">HackClub ASIET - Membership (2025)</h2>
+            <h2 className="text-[#181211] text-lg font-bold leading-tight tracking-[-0.015em]">HackClub ASIET - Membership</h2>
           </div>
         </header>
         
