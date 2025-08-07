@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { apiConfig } from '@/lib/api-config'
-import SuccessPage from '@/components/success-page' // Import the new SuccessPage component
+import SuccessPage from '@/components/success-page'
+import Footer from '@/components/footer'
 
 interface FormData {
   name: string
@@ -94,9 +95,9 @@ export default function Home() {
       <div className="layout-container flex h-full grow flex-col">
         <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f5f1f0] px-10 py-3">
           <div className="flex items-center gap-4 text-[#181211]">
-            <div className="size-4">
+            <div className="size-7">
               <img 
-                src="/assets/logo.png" 
+                src="/assets/hackclubasiet.png" 
                 alt="HackClub Logo" 
                 className="w-full h-full object-contain"
               />
@@ -339,8 +340,10 @@ export default function Home() {
                 </button>
               </div>
             </form>
+            <Footer />
           </div>
         </div>
+      
       </div>
     </div>
   )

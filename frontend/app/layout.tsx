@@ -24,9 +24,8 @@ export const metadata: Metadata = {
   title: 'HackClub ASIET - Student Registration',
   description: 'Join HackClub ASIET now!',
   icons: {
-    icon: 'data:image/x-icon;base64,',
+    icon: '/assets/hackclubasiet.png', // Use the relative path from public/
   },
-//    generator: 'v0.dev'
 }
 
 export default function RootLayout({

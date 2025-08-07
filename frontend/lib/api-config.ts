@@ -1,7 +1,7 @@
 export const apiConfig = {
-  baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || '',
+  baseUrl: 'http://127.0.0.1:8000',
   endpoints: {
-    submit: '/api/submit',
+    submit: '/submit',
     // Add more endpoints here as needed
     // users: '/api/users',
     // auth: '/api/auth',
@@ -17,7 +17,7 @@ export const getApiConfig = (environment: 'development' | 'production' | 'stagin
   const configs = {
     development: {
       ...apiConfig,
-      baseUrl: 'http://localhost:3000',
+      baseUrl: 'http://127.0.0.1:8000',
     },
     staging: {
       ...apiConfig,

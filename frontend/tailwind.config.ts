@@ -85,11 +85,16 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+  			shine: {
+  				'0%': { 'background-position-x': '200%' },
+  				'100%': { 'background-position-x': '-200%' },
+  			},
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			shine: 'shine 5s linear infinite',
   		}
   	}
   },
