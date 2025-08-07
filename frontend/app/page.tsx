@@ -342,7 +342,6 @@ export default function Home() {
                 </button>
               </div>
             </form>
-            <Footer />
           </div>
         </div>
       
