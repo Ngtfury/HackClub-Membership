@@ -1,5 +1,5 @@
 export const apiConfig = {
-  baseUrl: 'http://127.0.0.1:8000',
+  baseUrl: 'https://hackclub-membership-api.onrender.com',
   endpoints: {
     submit: '/submit',
     // Add more endpoints here as needed
@@ -17,7 +17,7 @@ export const getApiConfig = (environment: 'development' | 'production' | 'stagin
   const configs = {
     development: {
       ...apiConfig,
-      baseUrl: 'http://127.0.0.1:8000',
+      baseUrl: 'https://hackclub-membership-api.onrender.com',
     },
     staging: {
       ...apiConfig,
