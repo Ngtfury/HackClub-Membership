@@ -180,12 +180,14 @@ export default function Home() {
                     required
                   >
                     <option value="">Department</option>
-                    <option value="CSE">Computer Science and Engineering</option>
-                    <option value="EEE">Electrical and Electronics Engineering</option>
-                    <option value="EC">Electronics and Communication</option>
-                    <option value="ME">Mechanical Engineering</option>
-                    <option value="CE">Civil Engineering</option>
-                    <option value="EBE">Biomedical Engineering</option>
+                    <option value="CSE">CSE</option>
+                    <option value="CSAI">CS - AI</option>
+                    <option value="CSDS">CS - DS</option>
+                    <option value="EBE">EBE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="ME">ME</option>
+                    <option value="CE">CE</option>
                   </select>
                 </label>
               </div>
