@@ -185,7 +185,7 @@ export default function Home() {
                     <option value="CSDS">CS - DS</option>
                     <option value="ECE">ECE</option>
                     <option value="EEE">EEE</option>
-                    <option value="EBE">RA</option>
+                    <option value="RA">RA</option>
                     <option value="ME">ME</option>
                     <option value="EBE">EBE</option>
                     <option value="CE">CE</option>
