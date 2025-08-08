@@ -38,12 +38,11 @@ async def read_root():
 
 @app.post('/submit')
 async def submit_data(data: SubmitData):
-    member_id = "HC" + data.name[:3].upper() + f"{random.randint(0,999):03}"
-    passwd = f"{random.randint(10000, 99999)}"
-    print(data)
-    print(member_id, passwd)
     if not data.name or not data.email or not data.phone or not data.department:
         return {"error": "Name, email, and phone are required fields."}
+    member_id = "HC" + data.name.replace(" ", "")[:3].upper() + f"{random.randint(0,999):03}"
+    passwd = f"{random.randint(10000, 99999)}"
+
     resdb = db.insert_member(
         name=data.name,
         email=data.email,
@@ -64,3 +63,16 @@ async def submit_data(data: SubmitData):
     email.send_email(name=data.name, email=data.email, username=member_id, password=passwd)
 
 
+@app.get('/members')
+async def get_members():
+    members = db.get_members()
+    if not members:
+        return {"error": "No members found."}
+    return {"count": len(members), "members": members}
+
+@app.get('/memcount')
+async def get_member_count():
+    members = db.get_members()
+    if not members:
+        return {"count": 0}
+    return {"count": len(members)}

@@ -46,3 +46,9 @@ def insert_member(
     result = supabase.table("members").insert(data).execute()
     print("Insert result:", result)
     return True
+
+def get_members():
+    members = supabase.table("members").select("*").execute()
+    if not members.data:
+        return []
+    return members.data

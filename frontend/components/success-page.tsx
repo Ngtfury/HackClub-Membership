@@ -33,7 +33,7 @@ export default function SuccessPage() {
             Congrats, you are now a HackClub ASIET member.
           </p>
           <p className="mt-2 text-base text-gray-400">
-            Please check your email for more information
+            Please check your email inbox (or spam) for more information
           </p>
         </motion.div>
 
