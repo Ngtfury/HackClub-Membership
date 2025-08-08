@@ -183,10 +183,11 @@ export default function Home() {
                     <option value="CSE">CSE</option>
                     <option value="CSAI">CS - AI</option>
                     <option value="CSDS">CS - DS</option>
-                    <option value="EBE">EBE</option>
                     <option value="ECE">ECE</option>
                     <option value="EEE">EEE</option>
+                    <option value="EBE">RA</option>
                     <option value="ME">ME</option>
+                    <option value="EBE">EBE</option>
                     <option value="CE">CE</option>
                   </select>
                 </label>
