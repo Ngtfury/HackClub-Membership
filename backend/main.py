@@ -70,9 +70,16 @@ async def get_members():
         return {"error": "No members found."}
     return {"count": len(members), "members": members}
 
-@app.get('/memcount')
+@app.get('/members/count')
 async def get_member_count():
     members = db.get_members()
     if not members:
         return {"count": 0}
     return {"count": len(members)}
+
+@app.get('/members/sorted')
+async def get_sorted():
+    members = db.get_time_sorted()
+    if not members:
+        return {"error": "No members found."}
+    return {"count": len(members), "members": members}

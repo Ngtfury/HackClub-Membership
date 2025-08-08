@@ -48,7 +48,14 @@ def insert_member(
     return True
 
 def get_members():
-    members = supabase.table("members").select("*").execute()
+    members = supabase.table("members").select("name").execute()
     if not members.data:
         return []
-    return members.data
+    return [x['name'] for x in members.data]
+
+def get_time_sorted():
+    members = supabase.table("members").select("name").order("created_at", desc=True).execute()
+    if not members.data:
+        return []
+    return [x['name'] for x in members.data]
+
