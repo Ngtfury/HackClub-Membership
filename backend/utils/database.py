@@ -59,3 +59,9 @@ def get_time_sorted():
         return []
     return [x['name'] for x in members.data]
 
+def get_volunteers():
+    members = supabase.table("members").select("name").eq("volunteering", True).execute()
+    if not members.data:
+        return []
+    return [x['name'] for x in members.data]
+ 

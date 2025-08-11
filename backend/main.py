@@ -83,3 +83,10 @@ async def get_sorted():
     if not members:
         return {"error": "No members found."}
     return {"count": len(members), "members": members}
+
+@app.get('/members/volunteers')
+async def get_volunteers():
+    members = db.get_volunteers()
+    if not members:
+        return {"error": "No volunteers found."}
+    return {"count": len(members), "members": members}
