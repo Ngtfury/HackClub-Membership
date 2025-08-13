@@ -33,7 +33,12 @@ app.add_middleware(
 
 @app.get("/")
 async def read_root():
-    return {"message": "Hello, World!"}
+    return {"message": "you're not allowed to be here, now i know your ip & your location. nice try, lil bro"}
+    
+
+@app.api_route("/uptime-ping", methods=["GET", "POST", "HEAD"])
+def uptime_ping():
+    return {"status": "ok", "message": "I'm Alive"}
 
 
 @app.post('/submit')
