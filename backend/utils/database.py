@@ -65,3 +65,8 @@ def get_volunteers():
         return []
     return [x['name'] for x in members.data]
  
+def get_phone_numbers():
+    members = supabase.table("members").select("phone").execute()
+    if not members.data:
+        return []
+    return [x['phone'] for x in members.data]

@@ -95,3 +95,10 @@ async def get_volunteers():
     if not members:
         return {"error": "No volunteers found."}
     return {"count": len(members), "members": members}
+
+@app.get('/members/phone')
+async def get_phone_numbers():
+    members = db.get_phone_numbers()
+    if not members:
+        return {"error": "No members found."}
+    return {"count": len(members), "phone_numbers": members}
