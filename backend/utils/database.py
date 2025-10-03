@@ -78,7 +78,7 @@ def get_member_by_id(member_id: str):
     return member.data[0]
 
 
-def add_registration(member_id: str, track: str):
+def register_sprint(member_id: str, track: str):
     member_query = supabase.table("members").select("events").eq("member_id", member_id).execute()
 
     if not member_query.data:
