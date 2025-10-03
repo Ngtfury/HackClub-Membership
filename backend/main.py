@@ -20,12 +20,15 @@ class SubmitData(BaseModel):
   isAvailable: Optional[str] = None
   skills: Optional[str] = None
 
+class SprintData(BaseModel):
+    member_id: str
+
 app = FastAPI()
 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://hack-club-membership.vercel.app"], 
+    allow_origins=["https://hack-club-membership.vercel.app", "https://hackclub.asiet.com"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -68,6 +71,7 @@ async def submit_data(data: SubmitData):
     email.send_email(name=data.name, email=data.email, username=member_id, password=passwd)
 
 
+
 @app.get('/members')
 async def get_members():
     members = db.get_members()
@@ -102,3 +106,16 @@ async def get_phone_numbers():
     if not members:
         return {"error": "No members found."}
     return {"count": len(members), "phone_numbers": members}
+
+@app.post('/sprint/{track}')
+async def sprint_register(track: str, data: SprintData):
+    member_data = db.get_member_by_id(data.member_id)
+    if not member_data:
+        return {"error": "Member ID not found. Please register as a member first."}
+    
+    if track not in ["ai", "java", "web", "prompt", "ui"]:
+        return {"error": "Invalid track. Choose from 'web', 'app', 'ai', or 'game'."}
+    res = db.register_sprint(member_id=data.member_id, track=track)
+    if not res:
+        return {"error": "Failed to register for the sprint. Please try again later."}
+    return {"status": "success", "message": f"{data.member_id} registered for {track} sprint."}
